@@ -1,5 +1,5 @@
 def Geoipdownload(){
-   sh "curl -o ${params.VERSION}.tar.gz https://download.maxmind.com/app/geoip_download?edition_id=${params.VERSION}\&license_key=uPyhVG4SoAOA\&suffix=tar.gz"
+   sh "curl -o ${params.VERSION}.tar.gz https://download.maxmind.com/app/geoip_download?edition_id=${params.VERSION}&license_key=uPyhVG4SoAOA&suffix=tar.gz"
    echo "DOWNLOAD VERSION IS ${params.VERSION}"
    }
   def GeoipExtract(){
