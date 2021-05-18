@@ -23,7 +23,7 @@ pipeline {
 	   stage('build') {
 	      when {
 		     expression {
-			     BRANCH_NAME == "params.executeBuild == true 
+			     BRANCH_NAME == "params.executeBuild == true"
 				}
 			}	
 	      steps {
