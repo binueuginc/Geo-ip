@@ -2,7 +2,7 @@ def gv
 pipeline {
    agent any
      parameters {
-	    choice (name: 'Release', choices: ['1.0.1', '1.2.0', '1.3.0'], description: 'Deployment of selected version')
+	    choice (name: 'Release', choices: ['GeoLite2-City', 'GeoLite2-Country', 'GeoLite2-ASN'], description: 'Deployment of selected version')
 	        booleanParam(name: 'executeBuild', defaultValue: false, description: '')
 		booleanParam(name: 'executeTest', defaultValue: true, description: '')
 
