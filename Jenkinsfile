@@ -2,8 +2,8 @@ def gv
 pipeline {
    agent any
      parameters {
-	    choice (name: 'VERSION', choices: ['1.0.1', '1.2.0', '1.3.0'], description: 'Deployment of selected version')
-	        booleanParam(name: 'executeBuild', defaultValue: false, description: '')
+	    choice (name: 'RELEASE', choices: ['GeoLite2-City', 'GeoLite2-Country', 'GeoLite2-ASN'], description: 'Deployment of selected Release')
+	        booleanParam(name: 'executeS3upload', defaultValue: false, description: '')
 		booleanParam(name: 'executeTest', defaultValue: true, description: '')
 	        choice (name: 'BRANCH', choices: ['master', 'prod', 'dev', 'sanity'], description: 'Deployment Git Branch  selected')
 	        booleanParam(name: 'executeDockerPush', defaultValue: false, description: '')
