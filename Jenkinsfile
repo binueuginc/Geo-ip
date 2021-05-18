@@ -4,13 +4,12 @@ pipeline {
      parameters {
 	    choice (name: 'RELEASE', choices: ['GeoLite2-City', 'GeoLite2-Country', 'GeoLite2-ASN'], description: 'Deployment of selected Release')
 	        booleanParam(name: 'executeS3upload', defaultValue: false, description: '')
-		booleanParam(name: 'executeTest', defaultValue: true, description: '')
-	        choice (name: 'BRANCH', choices: ['master', 'prod', 'dev', 'sanity'], description: 'Deployment Git Branch  selected')
-	        booleanParam(name: 'executeDockerPush', defaultValue: false, description: '')
-	        booleanParam(name: 'executeTestDeploy', defaultValue: false, description: '')
-	        booleanParam(name: 'executeAwsEcsDeploy', defaultValue: false, description: '')
-	        booleanParam(name: 'executeCleanUp', defaultValue: false, description: '')
-	        booleanParam(name: 'executeDockerClean', defaultValue: true, description: '')
+		booleanParam(name: 'executeDeployGeoip from S3', defaultValue: false, description: 'Please select one of the following server')
+	        booleanParam(name: 'api-prod-beta-1', defaultValue: false, description: '')
+	        booleanParam(name: 'api-prod-beta-2', defaultValue: false, description: '')
+	        booleanParam(name: 'api-msvcs-grp-g-01', defaultValue: false, description: '')
+	        booleanParam(name: 'api-msvcs-grp-g-02', defaultValue: false, description: '')
+
 		}
 	environment {
 		DOCKERRUN = "docker run -p 8080:8080 my-app binueuginc/sample-myapp:${params.VERSION} " 
