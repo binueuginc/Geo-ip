@@ -93,6 +93,32 @@ pipeline {
 			   }
              }
 		}
-  
-	 }
+	    stage('dockerImagesCleanUp'){
+		when {
+		   expression {
+			 params.executeDockerClean == true 
+			     }
+		     }
+		   steps{
+		      script {
+		          gv.dockerCleanup()
+			   }
+                   }
+	    }
+     }	
+    post {
+   
+        cleanup {
+            /* clean up our workspace */
+            deleteDir()
+            /* clean up tmp directory */
+            dir("${workspace}@tmp") {
+                deleteDir()
+            }
+            /* clean up script directory */
+            dir("${workspace}@script") {
+                deleteDir()
+            }
+        }
+    }
 }
