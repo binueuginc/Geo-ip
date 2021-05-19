@@ -23,7 +23,7 @@ pipeline {
 	   stage('build') {
 	      when {
 		     expression {
-			     BRANCH_NAME == "params.executeS3upload == true"
+			     params.executeS3upload == true
 				}
 			}	
 	      steps {
