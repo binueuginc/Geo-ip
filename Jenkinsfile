@@ -5,7 +5,7 @@ pipeline {
 	    choice (name: 'Release', choices: ['GeoLite2-City', 'GeoLite2-Country', 'GeoLite2-ASN'], description: 'Deployment of selected Release')
 	        booleanParam(name: 'executeS3upload', defaultValue: false, description: '')
 		booleanParam(name: 'executeServerDeploy', defaultValue: true, description: 'Select one of the server ')
-	     choice (name: 'Release', choices: ['api-prod-beta-1', 'api-prod-beta-2', 'api-msvcs-grp-g-01', 'api-msvcs-grp-g-02'], description: '')
+	     choice (name: 'Server', choices: ['api-prod-beta-1', 'api-prod-beta-2', 'api-msvcs-grp-g-01', 'api-msvcs-grp-g-02'], description: '')
 
 		}
 	environment {
