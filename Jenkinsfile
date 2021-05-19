@@ -23,12 +23,12 @@ pipeline {
 	   stage('build') {
 	      when {
 		     expression {
-			     BRANCH_NAME == "params.executeBuild == true"
+			     BRANCH_NAME == "params.executeS3upload == true"
 				}
 			}	
 	      steps {
 		      script {
-			      gv.dockerBuild()
+			      gv.s3Download()
 		      }
 		
 		  }
