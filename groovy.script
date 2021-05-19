@@ -1,5 +1,8 @@
 def s3Download(){
    echo "S3 DOWNLOAD Release IS ${params.Release}"
    }
+def releaseExtract(){
+   echo "Release IS ${params.Release} extracted"
+   }
 return this
 
