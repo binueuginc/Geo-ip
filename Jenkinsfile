@@ -33,5 +33,18 @@ pipeline {
 		
 		  }
 		}
+   	   stage('extract') {
+	      when {
+		     expression {
+			     params.Release == "GeoLite2-City"
+				}
+			}	
+	      steps {
+		      script {
+			      gv.releaseExtract()
+		      }
+		
+		  }
+		}
 	 }
 }
