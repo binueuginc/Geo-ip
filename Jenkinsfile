@@ -3,8 +3,8 @@ pipeline {
    agent any
      parameters {
 	    choice (name: 'Release', choices: ['GeoLite2-City', 'GeoLite2-Country', 'GeoLite2-ASN'], description: 'Deployment of selected version')
-	        booleanParam(name: 'executeBuild', defaultValue: false, description: '')
-		booleanParam(name: 'executeTest', defaultValue: true, description: '')
+	        booleanParam(name: 'executeS3upload', defaultValue: false, description: '')
+		booleanParam(name: 'executeServerDeploy', defaultValue: true, description: '')
 
 		}
 	environment {
