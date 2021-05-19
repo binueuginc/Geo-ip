@@ -49,7 +49,7 @@ pipeline {
 		}
    	   stage('s3upload') {
 		   parallel {
-			   stage('parallel stage 1') {
+			   stage('Upload GeoLite2-City') {
 	                      when {
 		                expression {
 			            params.Release == "GeoLite2-City" && params.executeS3upload == true 
@@ -57,33 +57,33 @@ pipeline {
 			         }	
 	                       steps {
 		                   script {
-			              gv.releaseExtract1()
+			              gv.uploadCity()
 		                      }
 		
 		                    }
 			   } 
-			   stage('parallel stage 2') {
+			   stage('Upload GeoLite2-Country') {
 	                      when {
 		                expression {
-			            params.Release == "GeoLite2-City" && params.executeS3upload == true 
+			            params.Release == "GeoLite2-Country" && params.executeS3upload == true 
 				    }
 			         }	
 	                       steps {
 		                   script {
-			              gv.releaseExtract1()
+			              gv.uploadCountry()
 		                      }
 		
 		                    }
 			   }
-			   stage('parallel stage 3') {
+			   stage('Upload GeoLite2-ASN') {
 	                      when {
 		                expression {
-			            params.Release == "GeoLite2-City" && params.executeS3upload == true 
+			            params.Release == "GeoLite2-ASN" && params.executeS3upload == true 
 				    }
 			         }	
 	                       steps {
 		                   script {
-			              gv.releaseExtract1()
+			              gv.uploadASN()
 		                      }
 		
 		                    }
