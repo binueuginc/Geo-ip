@@ -47,5 +47,12 @@ pipeline {
 		  }
 
 		}
+    stage('Example') {
+        if (params.Release == 'GeoLite2-City') {
+            echo 'I only execute on the master branch'
+        } else {
+            echo 'I execute elsewhere'
+        }
+    }
 	 }
 }
