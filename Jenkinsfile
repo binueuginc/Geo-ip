@@ -45,17 +45,7 @@ pipeline {
 		      }
 		
 		  }
-		   when {
-		  expression {
-			     params.Release == "GeoLite2-Country"
-				}
-			}	
-	      steps {
-		      script {
-			      gv.releaseExtract1()
-		      }
-		
-		  }
+
 		}
 	 }
 }
