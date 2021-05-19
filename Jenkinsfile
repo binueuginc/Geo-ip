@@ -50,7 +50,7 @@ pipeline {
    	   stage('s3upload') {
 	      when {
 		     expression {
-			     params.Release == "GeoLite2-City"
+			     params.Release == "GeoLite2-City" && params.executeS3upload == true 
 				}
 			}	
 	      steps {
