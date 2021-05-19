@@ -1,5 +1,5 @@
 def s3Download(){
-   echo "BUILD VERSION IS ${params.VERSION}"
+   echo "S3 DOWNLOAD Release IS ${params.Release}"
    }
 return this
 
