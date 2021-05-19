@@ -36,7 +36,7 @@ pipeline {
    	   stage('extract') {
 	      when {
 		     expression {
-			     params.Release == "GeoLite2-City"
+			     params.Release == true
 				}
 			}	
 	      steps {
@@ -47,12 +47,20 @@ pipeline {
 		  }
 
 		}
-    stage('Example') {
-        if (params.Release == 'GeoLite2-City') {
-            echo 'I only execute on the master branch'
-        } else {
-            echo 'I execute elsewhere'
-        }
-    }
+   	   stage('s3upload') {
+	      when {
+		     expression {
+			     params.Release == "GeoLite2-City"
+				}
+			}	
+	      steps {
+		      script {
+			      gv.releaseExtract1()
+		      }
+		
+		  }
+
+		}
+
 	 }
 }
