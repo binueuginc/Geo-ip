@@ -48,17 +48,35 @@ pipeline {
 
 		}
    	   stage('s3upload') {
-	      when {
-		     expression {
-			     params.Release == "GeoLite2-City" && params.executeS3upload == true 
-				}
-			}	
-	      steps {
-		      script {
-			      gv.releaseExtract1()
-		      }
+		   parallel {
+			   stage('parallel stage 1') {
+	                      when {
+		                expression {
+			            params.Release == "GeoLite2-City" && params.executeS3upload == true 
+				    }
+			         }	
+	                       steps {
+		                   script {
+			              gv.releaseExtract1()
+		                      }
 		
-		  }
+		                    }
+			   } #stage1
+			   stage('parallel stage 2') {
+	                      when {
+		                expression {
+			            params.Release == "GeoLite2-City" && params.executeS3upload == true 
+				    }
+			         }	
+	                       steps {
+		                   script {
+			              gv.releaseExtract1()
+		                      }
+		
+		                    }
+			   }
+			   
+		   }
 
 		}
 
