@@ -20,10 +20,10 @@ pipeline {
 		   }
 	    }
 		
-	   stage('build') {
+	   stage('download') {
 	      when {
 		     expression {
-			     params.executeS3upload == true
+			     params.executeS3upload == true 
 				}
 			}	
 	      steps {
@@ -36,7 +36,7 @@ pipeline {
    	   stage('extract') {
 	      when {
 		     expression {
-			     params.Release == true
+			     params.executeS3upload == true
 				}
 			}	
 	      steps {
