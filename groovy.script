@@ -1,4 +1,4 @@
-def dockerBuild(){
+def s3Download(){
    echo "BUILD VERSION IS ${params.VERSION}"
    }
 return this
