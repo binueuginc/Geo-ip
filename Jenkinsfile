@@ -61,7 +61,7 @@ pipeline {
 		                      }
 		
 		                    }
-			   } #stage1
+			   } 
 			   stage('parallel stage 2') {
 	                      when {
 		                expression {
