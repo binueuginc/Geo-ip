@@ -75,6 +75,19 @@ pipeline {
 		
 		                    }
 			   }
+			   stage('parallel stage 3') {
+	                      when {
+		                expression {
+			            params.Release == "GeoLite2-City" && params.executeS3upload == true 
+				    }
+			         }	
+	                       steps {
+		                   script {
+			              gv.releaseExtract1()
+		                      }
+		
+		                    }
+			   }
 			   
 		   }
 
