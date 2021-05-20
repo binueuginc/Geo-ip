@@ -18,7 +18,7 @@ def uploadASN(){
    sh "ls -la ${params.Release}*/${params.Release}.mmdb"
    }
 def serverDeploy(){
-   if (${params.Release} == GeoLite2-City) { 
+   if ("${params.Release}" == GeoLite2-City) { 
    sh "ls -la ${params.Release}*/${params.Release}.mmdb"
    }else{
    sh "echo Hello world"
