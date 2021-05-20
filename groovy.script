@@ -4,16 +4,18 @@ def s3Download(){
    }
 def releaseExtract(){
    sh "tar -zxvf ${params.Release}.tar.gz"
+   sh "rm -f ${params.Release}.tar.gz"
    echo "Release ${params.Release} extracted"
    }
 def uploadCity(){
    echo "Release ${params.Release} uploaded"
+   sh "ls -la ${params.Release}*/${params.Release}.mmdb"
    }
 def uploadCountry(){
-   echo "Release ${params.Release} uploaded"
+   sh "ls -la ${params.Release}*/${params.Release}.mmdb"
    }
 def uploadASN(){
-   echo "Release ${params.Release} uploaded"
+   sh "ls -la ${params.Release}*/${params.Release}.mmdb"
    }
 return this
 
