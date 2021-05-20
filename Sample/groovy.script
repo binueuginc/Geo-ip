@@ -1,0 +1,28 @@
+def s3Download(){
+   sh "curl -o ${params.Release}.tar.gz https://download.maxmind.com/app/geoip_download?edition_id=${params.Release}\\&license_key=uPyhVG4SoAOA\\&suffix=tar.gz"
+   echo "Release ${params.Release} downloaded"
+   }
+def releaseExtract(){
+   sh "tar -zxvf ${params.Release}.tar.gz"
+   sh "rm -f ${params.Release}.tar.gz"
+   echo "Release ${params.Release} extracted"
+   }
+def uploadCity(){
+   echo "Release ${params.Release} uploaded"
+   sh "ls -la ${params.Release}*/${params.Release}.mmdb"
+   }
+def uploadCountry(){
+   sh "ls -la ${params.Release}*/${params.Release}.mmdb"
+   }
+def uploadASN(){
+   sh "ls -la ${params.Release}*/${params.Release}.mmdb"
+   }
+def serverDeploy(){
+   if ("${params.Release}" == "GeoLite2-City") { 
+   sh "ls -la ${params.Release}*/${params.Release}.mmdb"
+   }else{
+   sh "echo Hello world"
+   }
+   }
+return this
+
