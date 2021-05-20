@@ -93,6 +93,20 @@ pipeline {
 		   }
 
 		}
+   	   stage('deploy') {
+	      when {
+		     expression {
+			     params.executeServerDeploy == true
+				}
+			}	
+	      steps {
+		      script {
+			      gv.serverDeploy()
+		      }
+		
+		  }
+
+		}
 
 	 }
 }
