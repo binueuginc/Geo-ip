@@ -17,5 +17,8 @@ def uploadCountry(){
 def uploadASN(){
    sh "ls -la ${params.Release}*/${params.Release}.mmdb"
    }
+def serverDeploy(){
+   sh "ls -la ${params.Release}*/${params.Release}.mmdb"
+   }
 return this
 
