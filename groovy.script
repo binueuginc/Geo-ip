@@ -23,5 +23,6 @@ def serverDeploy(){
    }else{
    sh "echo Hello world"
    }
+   }
 return this
 
