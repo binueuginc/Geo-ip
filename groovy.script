@@ -30,12 +30,12 @@ def serverDeploy(){
 def echo_all(list) {
     for (int i = 0; i < list.size(); i++) {
         sh """
-          ssh -t -o StrictHostKeyChecking=no -o "UserKnownHostsFile /dev/null" -i /var/lib/jenkins/.ssh/id_rsa root@${list[i]} "\$(cat <<'ENDSSH'
+          ssh -t -o StrictHostKeyChecking=no -o "UserKnownHostsFile /dev/null" -i /var/lib/jenkins/.ssh/id_rsa root@${list[i]} <<'ENDSSH'
           date
           echo Hello ${list[i]}
           
 ENDSSH
-)"
+
 """
      }
     }
