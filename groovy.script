@@ -22,16 +22,16 @@ def serverDeploy(){
    sh "ls -la ${params.Release}*/${params.Release}.mmdb"
    abcs = ['a', 'b', 'c']
     echo_all(abcs)
-    @NonCPS // has to be NonCPS or the build breaks on the call to .each
-    def echo_all(list) {
-    list.each { item ->
-        echo "Hello ${item}"
-     }
    }
    
    }else{
    sh "echo Hello world"
    }
    }
+@NonCPS // has to be NonCPS or the build breaks on the call to .each
+def echo_all(list) {
+    list.each { item ->
+        echo "Hello ${item}"
+     }
 return this
 
