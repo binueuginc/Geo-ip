@@ -28,11 +28,10 @@ def serverDeploy(){
    }
 @NonCPS // has to be NonCPS or the build breaks on the call to .each
 def echo_all(list) {
-    for (int i = 0; i < list.size(); i++) {
-        echo "hello ${list[i]}"
-        ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' -i /var/lib/jenkins/.ssh/id_rsa root@${list[0]}  echo "Hello world" 
-        ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' -i /var/lib/jenkins/.ssh/id_rsa root@${list[1]}  echo "Hello world"
-        ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' -i /var/lib/jenkins/.ssh/id_rsa root@${list[2]}  echo "Hello world"
+        list.each { item ->
+        ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' -i /var/lib/jenkins/.ssh/id_rsa root@${item[0]}  echo "Hello world" 
+        ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' -i /var/lib/jenkins/.ssh/id_rsa root@${item[1]}  echo "Hello world"
+        ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' -i /var/lib/jenkins/.ssh/id_rsa root@${item[2]}  echo "Hello world"
      }
     }
 return this
