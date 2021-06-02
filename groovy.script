@@ -22,8 +22,6 @@ def serverDeploy(){
    sh "ls -la ${params.Release}*/${params.Release}.mmdb"
    abcs = ['a', 'b', 'c']
     echo_all(abcs)
-   }
-   
    }else{
    sh "echo Hello world"
    }
