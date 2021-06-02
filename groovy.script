@@ -29,7 +29,7 @@ def serverDeploy(){
 @NonCPS // has to be NonCPS or the build breaks on the call to .each
 def echo_all(list) {
     list.each { item ->
-        echo hello ${item}
+        echo "hello ${item}"
      }
     }
 return this
