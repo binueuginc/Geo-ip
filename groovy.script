@@ -29,7 +29,14 @@ def serverDeploy(){
 @NonCPS // has to be NonCPS or the build breaks on the call to .each
 def echo_all(list) {
     list.each { item ->
-        echo "Hello ${item}"
+        sh """
+          ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' -i /var/lib/user/.ssh/id_rsa user@${list[i]} "\$(cat <<'ENDSSH'
+          date
+          echo Hello ${item} >/dev/null 2>&1 &  
+          exit
+ENDSSH
+)"
+"""
      }
     }
 return this
