@@ -19,7 +19,7 @@ def uploadASN(){
    }
 def serverDeploy(){
    if ("${params.Release}" == "GeoLite2-City") { 
-   sh "ls -la ${params.Release}*/${params.Release}.mmdb
+   sh "ls -la ${params.Release}*/${params.Release}.mmdb"
    abcs = ['a', 'b', 'c']
     echo_all(abcs)
     @NonCPS // has to be NonCPS or the build breaks on the call to .each
