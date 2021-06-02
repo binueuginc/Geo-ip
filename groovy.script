@@ -28,8 +28,8 @@ def serverDeploy(){
    }
 @NonCPS // has to be NonCPS or the build breaks on the call to .each
 def echo_all(list) {
-        list.each { item ->
-        sh "ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' -i /var/lib/jenkins/.ssh/id_rsa root@${item}  echo Hello world "
+    for (int i = 0; i < list.size(); i++) {
+        sh "ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' -i /var/lib/jenkins/.ssh/id_rsa root@${list[1]}  echo Hello world "
      }
     }
 return this
