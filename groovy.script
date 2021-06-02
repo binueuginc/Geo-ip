@@ -20,7 +20,7 @@ def uploadASN(){
 def serverDeploy(){
    if ("${params.Release}" == "GeoLite2-City") { 
    sh "ls -la ${params.Release}*/${params.Release}.mmdb"
-   abcs = ['a', 'b', 'c']
+   abcs = ['192.168.115.246', '192.168.115.246', '192.168.115.246']
     echo_all(abcs)
    }else{
    sh "echo Hello world"
@@ -30,9 +30,9 @@ def serverDeploy(){
 def echo_all(list) {
     list.each { item ->
         sh """
-          ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' \-i /var/lib/user/.ssh/id_rsa user@${list[i]} "\$(cat <<'ENDSSH'
+          ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' -i /var/lib/user/.ssh/id_rsa user@${list} "\$(cat <<'ENDSSH'
           date
-          echo Hello ${item} >/dev/null 2>&1 &  
+          echo Hello ${item}
           exit
 ENDSSH
 )"
