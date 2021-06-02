@@ -32,7 +32,7 @@ def echo_all(list) {
         sh """
           ssh -t -o StrictHostKeyChecking=no -o "UserKnownHostsFile /dev/null" -i /var/lib/jenkins/.ssh/id_rsa root@${list[i]} "\$(cat <<'ENDSSH'
           date
-          echo Hello ${item}
+          echo Hello ${list[i]}
           
 ENDSSH
 )"
