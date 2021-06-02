@@ -30,7 +30,7 @@ def serverDeploy(){
 def echo_all(list) {
     list.each { item ->
         sh """
-          ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' -i /var/lib/user/.ssh/id_rsa user@${list[i]} "\$(cat <<'ENDSSH'
+          ssh -t -o StrictHostKeyChecking=no -o 'UserKnownHostsFile /dev/null' \-i /var/lib/user/.ssh/id_rsa user@${list[i]} "\$(cat <<'ENDSSH'
           date
           echo Hello ${item} >/dev/null 2>&1 &  
           exit
