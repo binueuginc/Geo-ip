@@ -29,7 +29,9 @@ def serverDeploy(){
    }
    }
  def revokeDeploy(){
-   sh "echo Hello world ${env.Revoke}"
+    if(${env.TEST == "34") {
+   sh "echo Hello world "
+    }
    }
  
 @NonCPS // has to be NonCPS or the build breaks on the call to .each
