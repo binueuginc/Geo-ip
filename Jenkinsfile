@@ -13,9 +13,9 @@ pipeline {
                 SERVICE_NAME = "sample-myapp-service"
 		TEST = "2"
 		if ( TEST == "2" ) {
-			REVOKE = 3
+			Revoke = 3
 		}else{
-			REVOKE = "unknown"
+			Revoke = "unknown"
 		}
 	}
          stages {
