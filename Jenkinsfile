@@ -11,6 +11,7 @@ pipeline {
 	environment {
                 TASK_FAMILY = "sample-myapp-task"
                 SERVICE_NAME = "sample-myapp-service"
+		TEST = "34"
 	}
          stages {
 	    stage('init'){
