@@ -28,6 +28,10 @@ def serverDeploy(){
    sh "echo Hello world"
    }
    }
+ def revokeDeploy(){
+   sh "echo Hello world ${env.Revoke}"
+   }
+ 
 @NonCPS // has to be NonCPS or the build breaks on the call to .each
 def echo_all0(list) {
     for (int i = 0; i < list.size(); i++) {
