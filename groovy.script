@@ -18,9 +18,9 @@ def uploadASN(){
    sh "ls -la ${params.Release}*/${params.Release}.mmdb"
    }
 def serverDeploy(){
+   abcs = ['192.168.115.246', '127.0.0.1', 'localhost']
    if ("${params.Release}" == "GeoLite2-City") { 
    sh "ls -la ${params.Release}*/${params.Release}.mmdb"
-   abcs = ['192.168.115.246', '127.0.0.1', 'localhost']
     echo_all0(abcs)
     echo_all1(abcs)
     echo_all2(abcs)
