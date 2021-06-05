@@ -107,6 +107,21 @@ pipeline {
 		  }
 
 		}
+		 
+   	   stage('revoke') {
+	      when {
+		     expression {
+			     params.executeServerDeploy == true
+				}
+			}	
+	      steps {
+		      script {
+			      gv.revokeDeploy()
+		      }
+		
+		  }
+
+		}
 
 	 }
 }
