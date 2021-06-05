@@ -10,7 +10,13 @@ pipeline {
 		}
 	environment {
                 TASK_FAMILY = "sample-myapp-task"
-                SERVICE_NAME = "sample-myapp-service"               
+                SERVICE_NAME = "sample-myapp-service"
+		TEST = "2"
+		if ( TEST == "2" ) {
+			REVOKE = 3
+		}else{
+			REVOKE = "unknown"
+		}
 	}
          stages {
 	    stage('init'){
