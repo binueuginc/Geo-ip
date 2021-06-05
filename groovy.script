@@ -29,7 +29,7 @@ def serverDeploy(){
    }
    }
  def revokeDeploy(){
-    if(${env.TEST} == "34") {
+    if(\${env.TEST} == "34") {
    sh "echo Hello world "
     }
    }
