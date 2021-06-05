@@ -29,7 +29,7 @@ def serverDeploy(){
    }
    }
  def revokeDeploy(){
-    sh "${MAN}"
+    sh "echo ${MAN}"
    }
  
 @NonCPS // has to be NonCPS or the build breaks on the call to .each
