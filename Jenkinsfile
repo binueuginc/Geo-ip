@@ -117,6 +117,9 @@ pipeline {
 			}	
 	      steps {
 		      script {
+			      if (env.TEST == '34') {
+				      MAN = "600"
+			      }
 			      gv.revokeDeploy()
 		      }
 		
